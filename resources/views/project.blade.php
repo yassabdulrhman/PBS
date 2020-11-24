@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <!-- load jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -46,15 +45,14 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <div class="card">
-                <div class="card-header">Rate the Projects</div>
+            <div class="">
 
-                <div class="card-body">
-                  <div class="">
-                    @foreach($recordes as $recorde)
-                    <div id="card{{$recorde->id}}">
+
+                <class="card-body">
+                  <div class="" style="text-align: right;">
+                    <div id="card{{$users[0]->name_ar}}">
                       <div class="card card-header">
-                        {{$recorde->name}}
+                      {{$users[0]->name_ar}}
                       </div>
                     <div class="card mb-3">
     <div class="row no-gutters">
@@ -63,19 +61,21 @@
       </div> -->
       <div class="col-md-10">
         <div class="card-body">
-          <h5 class="card-title">{{$recorde->name}}</h5>
-          <p class="card-text">
-            {{$recorde->details}}
-  <br>
-  @if ($collection->has($recorde->id))
-@foreach($collection[$recorde->id] as $attachmentlink)
-  <a class = "btn navbar-btn btn-link" href = "/download/{{$attachmentlink}}" target = "">download attachment</a>
-  <br>
-  @endforeach
-@endif
+        رقم السجل التجاري للمنشأة المقدمة على الجائزة: <strong>{{$users[0]->govid}}</strong>
+                      <br>
+                      {{$users[0]->incomes}}
+                      <br>
+                      {{$users[0]->age}}
+                      <br>
+                      {{$users[0]->dropdown1}}
+                      <br>
+                      {{$users[0]->dropdown2}}
 
+          <p class="card-text">
+          {{$users[0]->id}}
+  <br>
           </p>
-          <p class="card-text"><small class="text-muted">Created at:  {{$recorde->created_at}}</small></p>
+          <p class="card-text"><small class="text-muted">Created at:  {{$users[0]->created_at }}</small></p>
         </div>
       </div>
     </div>
@@ -261,39 +261,14 @@
 <div>
 <b class="text-right">معدل النمو</b>
 </div></div>
-
-    <!-- <p class = "tpbutton btn-toolbar text-right" style="display: block; text-align: right;">
-    <b class="text-right">قابلية تحويل الاختراع لمنتج أو خدمة تجارية ؟</b><b id="mark1" class="markcolor">10</b>
-              <input type="range" class="custom-range" min="0" max="10" id="customRange1" onchange="changemark()">
-
-    </p>
-
-    <p class = "tpbutton btn-toolbar text-right" style="display: block; text-align: right;">
-    <b class="text-right">لاختراع يلبي احتياج في السوق أو يعالج مشكلة قائمة ؟</b><b id="mark2" class="markcolor">10</b>
-              <input type="range" class="custom-range" min="0" max="10" id="customRange2" onchange="changemark()">
-    </p>
-    <p class = "tpbutton btn-toolbar text-right" style="display: block; text-align: right;">
-    <b class="text-right">الاختراع يحقق ميزة تنافسية محلية مقارنة بمنتجات/الخدمات الحالية؟</b><b id="mark3" class="markcolor">10</b>
-              <input type="range" class="custom-range" min="0" max="10" id="customRange3" onchange="changemark()">
-    </p>
-    <p class = "tpbutton btn-toolbar text-right" style="display: block; text-align: right;">
-    <b class="text-right">وضوح الخطة المستقبلية لتحويل الابتكار لمشروع تجاري واعد قابل للنمو؟</b><b id="mark4" class="markcolor">10</b>
-              <input type="range" class="custom-range" min="0" max="10" id="customRange4" onchange="changemark()">
-    </p>
-    <p class = "tpbutton btn-toolbar text-right" style="display: block; text-align: right;">
-    <b class="text-right">ملائمة الاختراع لطبيعة وثقافة المستهلك السعودي ؟</b><b id="mark5" class="markcolor">10</b>
-              <input type="range" class="custom-range" min="0" max="10" id="customRange5" onchange="changemark()">
-    </p>
-    <p class = "tpbutton btn-toolbar text-right" style="display: block; text-align: right;">
-         <a class = "btn navbar-btn btn-primary" onclick="myFunction({{$recorde->id}})" style="margin:0px 50px;color:white">Submit</a>
-     </p> -->
+<p class = "tpbutton btn-toolbar text-right" style="display: block; text-align: right;">
+         <a class = "btn navbar-btn btn-primary" onclick="myFunction()" style="margin:0px 50px;color:white">Submit</a>
+     </p>
     </div>
   </div>
                     </div>
-
-                    @endforeach
                 </div>
-            </div>
+
         </div>
     </div>
 </div>

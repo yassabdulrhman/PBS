@@ -13,6 +13,10 @@ use App\Http\Controllers\Route;
 
 class UploadController extends Controller
 {
+    public function Uploadindex()
+    {
+        return view('uploadExcel');
+    }
   public function index($id)
   {
     $files = DB::table('attachments')

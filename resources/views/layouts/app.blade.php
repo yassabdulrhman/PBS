@@ -7,139 +7,113 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'PBS') }}</title>
+    <title>{{ config('app.name', 'CRM') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Styles -->
+
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @yield('style')
+
+<link href="{{ URL::asset('css/reset.css') }}" rel="stylesheet" type="text/css" >
+<link href="{{ URL::asset('css/examples.css') }}" rel="stylesheet" type="text/css" >
+<link href="{{ URL::asset('css/radios-to-slider.css') }}" rel="stylesheet" type="text/css" >
+@yield('css')
+
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <!-- {{ config('app.name', 'Laravel') }} -->
-                    <img height="30" src="{{ asset('css/logo.png') }}" alt="">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            <!-- @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif -->
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                  @if(auth()->user()->type==1)
-                                  <a class="dropdown-item" href="{{ route('register') }}">{{ __('New user') }}</a>
-                                  <a class="dropdown-item" href="{{ route('newproject') }}">{{ __('New Project') }}</a>
-                                  <a class="dropdown-item" href="{{ route('projects') }}">{{ __('Projects') }}</a>
-                                  <a class="dropdown-item" href="{{ route('ratings') }}">{{ __('Ratings') }}</a>
-                                  <a class="dropdown-item" href="{{ route('reporting') }}">{{ __('Reporting') }}</a>
-                                  @endif
-                                  @if(auth()->user()->type==2)
-                                  <a class="dropdown-item" href="{{ route('newproject') }}">{{ __('New Project') }}</a>
-                                  <a class="dropdown-item" href="{{ route('projects') }}">{{ __('Projects') }}</a>
-                                  @endif
-                                  @if(auth()->user()->type==3)
-                                  <a class="dropdown-item" href="{{ route('ratings') }}">{{ __('Ratings') }}</a>
-                                  @endif
-
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+        <!--- Navbar --->
+	<nav class="navbar navbar-expand-lg navbar-light">
+		<div class="container">
+            <div>
+            <a href="/home">
+            <img src="{{asset('storage/logo.png')}}" class="logo" alt="">
+            </a>
             </div>
-        </nav>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nvbCollapse" aria-controls="nvbCollapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+            <div class="collapse navbar-collapse" id="nvbCollapse">
+            <div id='cssmenu'>
+<ul>
+   <li class='active has-sub'><a href='#'><span>الأشراف</span></a>
+      <ul>
+      <li><a href="{{ route('register') }}"><i class="fa fa-user-plus fa-fw mr-1"></i>{{ __('مستخدم جديد') }}</a></a></li>
+      <li><a href="{{ route('users') }}"><i class="fa fa-users fa-fw mr-1"></i>{{ __('المستخدمين') }}</a></a></li>
+      <li><a href="{{ route('importExportView') }}"><i class="fa fa-table fa-fw mr-1"></i>{{ __('تحميل مشاريع') }}</a></a></li>
+      </ul>
+   </li>
+   <li class='active has-sub'><a href='#'><span>المشاريع</span></a>
+      <ul>
+      <li><a href="{{ route('projectslist','med') }}"><i class="fa fa-star fa-fw mr-1"></i>{{ __('المنشآت الابتكارية المتوسطة') }}</a></a></li>
+      <li><a href="{{ route('projectslist','small') }}"><i class="fa fa-star fa-fw mr-1"></i>{{ __('المنشآت الابتكارية الصغيرة') }}</a></a></li>
+      <li><a href="{{ route('newproject') }}"><i class="fa fa-plus-square fa-fw mr-1"></i>{{ __('مشروع جديد') }}</a></a></li>
+      <li><a href="{{ route('reporting') }}"><i class="fa fa-table fa-fw mr-1"></i>{{ __('تقارير') }}</a></a></li>
+      </ul>
+   </li>
+</ul>
+</div>
+			</div>
+		</div>
+	</nav>
+	<!--# Navbar #-->
+
 
         <main class="py-4">
             @yield('content')
         </main>
     </div>
     <footer class="site-footer">
-<div class="container">
-<div class="row">
-<div class="col-lg-3">
-<h2 class="footer-heading mb-3">About Me</h2>
-<p>Professional Business Solutions (PBS) is the leading company in providing consultancy services, and making solutions dedicated to the entrepreneurship community.</p>
-</div>
-<div class="col-lg-8 ml-auto">
-<div class="row">
-<div class="col-lg-6 ml-auto">
-<h2 class="footer-heading mb-4">Quick Links</h2>
-<ul class="list-unstyled">
-<li><a href="#">About Us</a></li>
-<li><a href="#">Testimonials</a></li>
-<li><a href="#">Terms of Service</a></li>
-<li><a href="#">Privacy</a></li>
-<li><a href="#">Contact Us</a></li>
-</ul>
-</div>
-<div class="col-lg-6">
-<h2 class="footer-heading mb-4">Connect</h2>
-<div class="social_29128 white mb-5">
-<a href="#"><span class="icon-facebook"></span></a>
-<a href="#"><span class="icon-instagram"></span></a>
-<a href="#"><span class="icon-twitter"></span></a>
-</div>
-<h2 class="footer-heading mb-4">Newsletter</h2>
-<form action="#" class="d-flex">
-<input type="text" class="form-control mr-3" placeholder="Email">
-<input type="submit" value="Send" class="btn btn-primary">
-</form>
-</div>
-</div>
-</div>
-</div>
-<div class="row pt-5 mt-5 text-center">
-<div class="col-md-12">
-<div class="border-top pt-5">
-<p>
+        <div>
+            <h2>Contact Us</h2>
+            <div>
+            <div style="width: 100%;display:flex;">
+        <div class="side-footer" style="align-content: space-between;">
+           <p>
 
-Copyright ©2019 All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://pbs.sa" target="_blank">pbs.sa</a>
+Phone: 0555472570
+<br>
+Email: info@pbs.sa
 
-</p>
+           </p>
+           </div>
+           <div class="side-footer" style="align-content: space-between;">
+           <p>
+           Address : <br>
+King Salman Rd, Al Aarid, Riyadh 13331
+           </p>
+
+<div class="elementor-social-ico-dev">
+<i class="fa fa-linkedin elementor-social-ico"></i>
+<i class="fa fa-twitter elementor-social-ico"></i>
+<i class="fa fa-instagram elementor-social-ico"></i>
+<i class="fa fa-youtube elementor-social-ico"></i>
 </div>
-</div>
-</div>
-</div>
+
+        </div>
+        <div class="side-footer">
+        <input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Name" required="required" aria-required="true">
+        <input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Name" required="required" aria-required="true">
+        <input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Name" required="required" aria-required="true">
+        <textarea class="elementor-field-textual elementor-field  elementor-size-sm" name="form_fields[message]" id="form-field-message" rows="4" placeholder="Message" required="required" aria-required="true"></textarea>
+        <button type="submit" class="elementor-animation-grow"><span>
+            <span class=" elementor-button-icon">
+            </span>
+            <span class="elementor-button-text">Send</span>
+        </span></button>
+    </div>
+    </div>
+            </div>
+        </div>
 </footer>
+@yield('js')
 </body>
 </html>

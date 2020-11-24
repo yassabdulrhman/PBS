@@ -70,6 +70,7 @@
     </div>
     <p class = "tpbutton btn-toolbar text-right" style="display: block; text-align: right; padding:0px 50px;color:white;">
       <a class = "btn navbar-btn btn-success" onclick="myFunction(1,{{$recorde->id}})">Aprove</a>
+      <a class = "btn navbar-btn btn-primary" onclick="myFunction(1,{{$recorde->id}})">Fast Aprovel</a>
       <a class = "btn navbar-btn btn-link" style="color:red;" onclick="myFunction(0,{{$recorde->id}})">Decline</a>
     </p>
   </div>

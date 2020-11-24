@@ -12,6 +12,7 @@ use App\countries;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Project2020;
 
 class NewProjectController extends Controller
 {
@@ -172,5 +173,45 @@ AND `aprovels`.`aprovel`=1") );
   //Route::put('upload/11', 'UploadController@index');
   //
   // return $request;
+  }
+
+  public function ProjectsList()
+  {
+    // if($type=='small')
+    // {
+    //   $users = DB::table('project2020')
+    //   ->where('employess_num', 'like', '5 موظفين أو أقل')
+    //   ->orWhere('employess_num', 'like', 'من 6 إلى 49 موظفاً')
+    //   ->where('incomes', 'like', '3 ملايين ريال أو أقل')
+    //   ->orWhere('incomes', 'like', 'من 3 ملايين إلى 40 مليون ريال')
+    //   ->get();
+
+    //   ->where('employess_num', 'like', '5 موظفين أو أقل')
+    //   ->orWhere('employess_num', 'like', 'من 6 إلى 49 موظفاً')
+    //   ->where('incomes', 'not like', 'من 40 مليون ريال إلى 200 مليون ريال')
+    //   ->where('incomes', 'not like', 'أكثر من 200 مليون ريال')
+    // }
+    // else
+    // {
+    //   $users = DB::table('project2020')
+    //   ->where('employess_num', 'like', 'من 50 إلى 249 موظفاً')
+    //   ->orWhere('employess_num', 'like', ' من 250 موظفاً أو أكثر')
+    //   ->where('incomes', 'like', 'من 40 مليون ريال إلى 200 مليون ريال')
+    //   ->orWhere('incomes', 'like', 'أكثر من 200 مليون ريال')
+    //   ->get();
+    // }
+    $users = Project2020::all();
+
+
+  return view('projectslist')->with('users',$users);
+  //Route::put('upload/11', 'UploadController@index');
+  //
+  // return $request;
+  }
+
+  public function projectpage($id)
+  {
+    $users = DB::table('project2020')->where('govid', '=', $id)->get();
+  return view('project',['users' => $users]);
   }
 }
