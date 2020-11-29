@@ -14,24 +14,29 @@
       document.getElementById('mark4').innerHTML = document.getElementById('customRange4').value;
       document.getElementById('mark5').innerHTML = document.getElementById('customRange5').value;
     }
+    function iselect(row,val)
+    {
+        alert(row + "|" + val);
+    }
     function myFunction(p_id)
     {
+        alert("Done");
         if (confirm('Are you sure you want to save this?')) {
-      var v1 = document.getElementById('customRange1').value;
-          var v2 = document.getElementById('customRange2').value;
-          var v3 = document.getElementById('customRange3').value;
-          var v4 = document.getElementById('customRange4').value;
-          var v5 = document.getElementById('customRange5').value;
+          var v1 = document.getElementsByName('options3')[1].value;
+          alert(v1);
+          var v2 = document.getElementsByName('options2')[0].value;
+          var v3 = document.getElementsByName('options1')[0].value;
       var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
       $.ajax({
           /* the route pointing to the post function */
           url: '/rate',
           type: 'POST',
           /* send the csrf-token and the input to the controller */
-          data: {_token: CSRF_TOKEN, rate:v1,rate2:v2,rate3:v3,rate4:v4,rate5:v5,id:p_id},
+          data: {_token: CSRF_TOKEN, rate:v1,rate2:v2,rate3:v3,rate4:10,rate5:10,id:10},
           dataType: 'JSON',
           /* remind that 'data' is the response of the AjaxController */
           success: function (data) {
+              alert("Done");
               $(".writeinfo").append(data.id);
               document.getElementById("card"+p_id).remove();
           }
@@ -59,8 +64,183 @@
       <!-- <div class="col-md-4">
         <img src="..." class="card-img" alt="No image">
       </div> -->
-      <div class="col-md-10">
+      <div class="col-md-10" style="margin: auto;">
         <div class="card-body">
+        <div dir="rtl">
+        <label for="">رقم</label>
+        <strong>10</strong>
+        <br>
+       <p>
+       اسم
+       <br>
+       name
+       </p>
+       <table style="width:100%">
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td>
+       <label for="">عمر</label>
+       </td>
+       <td>
+       <label for="">عمر</label>
+       </td>
+       </tr>
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td>
+       <label for="">لللل</label>
+       </td>
+       <td>
+       <label for="">للللل</label>
+       </td>
+       </tr>
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td>
+       <label for="">ششششش</label>
+       </td>
+       <td>
+       <label for="">شششش</label>
+       </td>
+       </tr>
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td>
+       <label for="">ضضضضض</label>
+       </td>
+       <td>
+       <label for="">ضضضض</label>
+       </td>
+       </tr>
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td>
+       <label for="">للليبل</label>
+       </td>
+       <td>
+       <label for="">للليبل</label>
+       </td>
+       </tr>
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td>
+       <label for="">عمر</label>
+       </td>
+       <td>
+       <label for="">عمر</label>
+       </td>
+       </tr>
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td>
+       <label for="">لللل</label>
+       </td>
+       <td>
+       <label for="">للللل</label>
+       </td>
+       </tr>
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td>
+       <label for="">ششششش</label>
+       </td>
+       <td>
+       <label for="">شششش</label>
+       </td>
+       </tr>
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td>
+       <label for="">ضضضضض</label>
+       </td>
+       <td>
+       <label for="">ضضضض</label>
+       </td>
+       </tr>
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td>
+       <label for="">للليبل</label>
+       </td>
+       <td>
+       <label for="">للليبل</label>
+       </td>
+       </tr>
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td>
+       <label for="">عمر</label>
+       </td>
+       <td>
+       <label for="">عمر</label>
+       </td>
+       </tr>
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td>
+       <label for="">لللل</label>
+       </td>
+       <td>
+       <label for="">للللل</label>
+       </td>
+       </tr>
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td>
+       <label for="">ششششش</label>
+       </td>
+       <td>
+       <label for="">شششش</label>
+       </td>
+       </tr>
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td>
+       <label for="">ضضضضض</label>
+       </td>
+       <td>
+       <label for="">ضضضض</label>
+       </td>
+       </tr>
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td colspan="2">
+       <label for="" class="tlable">مرحبا</label>
+       <p>ططط</p>
+       </td>
+       </tr>
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td>
+       <label for="">ششششش</label>
+       </td>
+       <td>
+       <label for="">شششش</label>
+       </td>
+       </tr>
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td>
+       <label for="">ضضضضض</label>
+       </td>
+       <td>
+       <label for="">ضضضض</label>
+       </td>
+       </tr>
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td colspan="2">
+       <label for="" class="tlable">مرحبا</label>
+       <p>ططط</p>
+       </td>
+       </tr>
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td>
+       <label for="">ششششش</label>
+       </td>
+       <td>
+       <label for="">شششش</label>
+       </td>
+       </tr>
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td>
+       <label for="">ضضضضض</label>
+       </td>
+       <td>
+       <label for="">ضضضض</label>
+       </td>
+       </tr>
+       <tr style="border-bottom: gray 0.3px solid;">
+       <td colspan="2">
+       <label for="" class="tlable">مرحبا</label>
+       <p>ططط</p>
+       </td>
+       </tr>
+       </table>
+       <br>
+        </div>
         رقم السجل التجاري للمنشأة المقدمة على الجائزة: <strong>{{$users[0]->govid}}</strong>
                       <br>
                       {{$users[0]->incomes}}
@@ -205,17 +385,17 @@
 <!-- new -->
 <div style="display:flex; justify-content:space-between; align-items: center; margin:6px 0px">
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-secondary active">
-    <input type="radio" name="options" id="option1" autocomplete="off">0
+    <label class="btn btn-secondary active">
+    <input type="radio" name="options1" id="option1" autocomplete="off" value="0">0
   </label>
   <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option2" autocomplete="off">1
+    <input type="radio" name="options1" id="option2" autocomplete="off" value="1">1
   </label>
   <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option3" autocomplete="off">2
+    <input type="radio" name="options1" id="option3" autocomplete="off" value="2">2
   </label>
   <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option3" autocomplete="off">3
+    <input type="radio" name="options1" id="option3" autocomplete="off" value="3">3
   </label>
 </div>
 <div>
@@ -225,17 +405,17 @@
 <!-- new -->
 <div style="display:flex; justify-content:space-between; align-items: center; margin:6px 0px">
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-secondary active">
-    <input type="radio" name="options" id="option1" autocomplete="off">0
+    <label class="btn btn-secondary active">
+    <input type="radio" name="options2" id="option1" autocomplete="off" value="0">0
   </label>
   <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option2" autocomplete="off">1
+    <input type="radio" name="options2" id="option2" autocomplete="off" value="1">1
   </label>
   <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option3" autocomplete="off">2
+    <input type="radio" name="options2" id="option3" autocomplete="off" value="2">2
   </label>
   <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option3" autocomplete="off">3
+    <input type="radio" name="options2" id="option3" autocomplete="off" value="3">3
   </label>
 </div>
 <div>
@@ -246,23 +426,23 @@
 <div style="display:flex; justify-content:space-between; align-items: center; margin:6px 0px">
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
-    <input type="radio" name="options" id="option1" autocomplete="off">0
+    <input type="radio" name="options3" id="option1" autocomplete="off" value="0">0
   </label>
   <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option2" autocomplete="off">1
+    <input type="radio" name="options3" id="option2" autocomplete="off" value="1">1
   </label>
   <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option3" autocomplete="off">2
+    <input type="radio" name="options3" id="option3" autocomplete="off" value="2">2
   </label>
   <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option3" autocomplete="off">3
+    <input type="radio" onclick="iselect('b',10)" name="options3" id="option3" autocomplete="off" value="3">3
   </label>
 </div>
 <div>
 <b class="text-right">معدل النمو</b>
 </div></div>
 <p class = "tpbutton btn-toolbar text-right" style="display: block; text-align: right;">
-         <a class = "btn navbar-btn btn-primary" onclick="myFunction()" style="margin:0px 50px;color:white">Submit</a>
+         <a class = "btn navbar-btn btn-primary" onclick="myFunction(10)" style="margin:0px 50px;color:white">Submit</a>
      </p>
     </div>
   </div>

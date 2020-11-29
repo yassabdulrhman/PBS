@@ -14,7 +14,7 @@
                     </h1>
 
                     <!-- Bootstrap table and table-striped classes -->
-                    <table class="table table-striped">
+                    <table class="table table-striped" style="text-align: start;">
                         <thead>
                             <tr>
 

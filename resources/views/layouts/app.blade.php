@@ -53,6 +53,7 @@
    </li>
    <li class='active has-sub'><a href='#'><span>المشاريع</span></a>
       <ul>
+      <li><a href="{{ route('reporting') }}"><i class="fa fa-table fa-fw mr-1"></i>{{ __('المشاريع الحديثة') }}</a></a></li>
       <li><a href="{{ route('projectslist','med') }}"><i class="fa fa-star fa-fw mr-1"></i>{{ __('المنشآت الابتكارية المتوسطة') }}</a></a></li>
       <li><a href="{{ route('projectslist','small') }}"><i class="fa fa-star fa-fw mr-1"></i>{{ __('المنشآت الابتكارية الصغيرة') }}</a></a></li>
       <li><a href="{{ route('newproject') }}"><i class="fa fa-plus-square fa-fw mr-1"></i>{{ __('مشروع جديد') }}</a></a></li>
